@@ -44,22 +44,9 @@ public class RawXmlParseFilter implements HtmlParseFilter {
 		Metadata metadata = parseResult.get(url).getData().getParseMeta();
 
 		String rawContent = new String(content.getContent());
-		String defangedContent = removeCdataSections(rawContent);
-		metadata.add(RAW_CONTENT, wrapInCdata(defangedContent));
+		metadata.add(RAW_CONTENT, rawContent);
 
 		return parseResult;
-	}
-
-	private String removeCdataSections(final String xml) {
-		String regexp = "<!\\[CDATA\\[(^\\]\\]>)\\]\\]>";
-		return xml.replaceAll(regexp, "");
-	}
-
-	private String wrapInCdata(String rawContent) {
-		StringBuilder sb = new StringBuilder("<![CDATA[");
-		sb.append(rawContent);
-		sb.append("]]>");
-		return sb.toString();
 	}
 
 }

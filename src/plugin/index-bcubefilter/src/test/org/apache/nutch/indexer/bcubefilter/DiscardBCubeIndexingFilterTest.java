@@ -44,8 +44,6 @@ public class DiscardBCubeIndexingFilterTest {
 
 		NutchDocument doc = new NutchDocument();
 		
-		doc.add("type", "text/xml");
-		doc.add("type", "application/xml");
 		doc.add("type", "application/opensearchdescription+xml");
 
 		Parse parse = mock(Parse.class);
@@ -64,7 +62,7 @@ public class DiscardBCubeIndexingFilterTest {
 		NutchField contentTypeField = doc.getField("type");
 		
 		String typeValue = contentTypeField.getValues().get(0).toString();
-		assertTrue(typeValue.equals("text/xml"));
+		assertTrue(typeValue.equals("application/opensearchdescription+xml"));
 	}
 
 	@Test
@@ -77,7 +75,6 @@ public class DiscardBCubeIndexingFilterTest {
 		NutchDocument doc = new NutchDocument();
 		
 		doc.add("type", "text/html");
-		doc.add("type", "application/javascript");
 
 		Parse parse = mock(Parse.class);
 		Metadata metadata = new Metadata();

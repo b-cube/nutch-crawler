@@ -17,7 +17,7 @@
 
 package org.apache.nutch.indexer.bcubefilter;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.apache.hadoop.conf.Configuration;
@@ -38,6 +38,7 @@ public class DiscardBCubeIndexingFilter implements IndexingFilter {
   public static final Logger LOG = LoggerFactory.getLogger(DiscardBCubeIndexingFilter.class);
 
   private Configuration conf;
+  private List<String> allowedMimeTypes;
 
  /**
   * The {@link DiscardBCubeIndexingFilter} filter object 
@@ -51,32 +52,41 @@ public class DiscardBCubeIndexingFilter implements IndexingFilter {
   */
   public NutchDocument filter(NutchDocument doc, Parse parse, Text url, CrawlDatum datum, Inlinks inlinks)
     throws IndexingException {
-
-    // types
-    List<String> xml_types = new ArrayList<String>();
-    
-    xml_types.add("xml");
-    xml_types.add("json");
-    xml_types.add("text/xml");
-    xml_types.add("application/xml");
-    xml_types.add("application/json");    
-    xml_types.add("application/opensearchdescription+xml");
-    xml_types.add("application/opensearch+xml");
-    
+	  if(mimeTypeFilter(doc)) {
+		  return doc;
+	  }
+	  return null;
+  }
+  
+  public boolean urlFilter(NutchDocument doc) {
+	  //TODO [This should not be a replacement for the URL regex.]
+	  return false;
+  }
+  
+  public boolean relevantOrNot(NutchDocument doc) {
+	  //TODO [This method will send the URL, anchor text and perhaps 
+	  //  a set of limited tokens to a service that will decide 
+	  //  if it is relevant (meaning is a web service or data) 
+	  //  and therefore it should be indexed.
+	  return false;
+  }  
+  
+  
+  public boolean mimeTypeFilter(NutchDocument doc) {
     if (doc.getField("type") != null) {    
-	    for (Object mimeType : doc.getField("type").getValues()) {
-	      if (mimeType != null) {
-	    	  if (xml_types.contains(mimeType.toString())) {
-	    		  return doc;
-	    	  }
-	      }
+    	List<Object> docType = doc.getField("type").getValues();
+    	String documentType = docType.get(0).toString();
+	    for (String allowedType : this.allowedMimeTypes) {
+    	  if (documentType.contains(allowedType)) {
+    		  // will be indexed
+    		  return true;
+    	  }
 	    }
-	    return null;
+	    return false;
     } else {
-      LOG.error("The index-more plugin should be added before this plugin in indexingfilter.order");
-      return doc;
+      LOG.warn("The index-more plugin should be added before this plugin in indexingfilter.order");
+      return false;
     }
-//    LOG.debug(types.toString());
   }
 
   /**
@@ -84,6 +94,12 @@ public class DiscardBCubeIndexingFilter implements IndexingFilter {
    */
   public void setConf(Configuration conf) {
     this.conf = conf;
+    String allowedTypes = conf.get("indexingfilter.bcube.allowed.mimetypes");
+    if (allowedTypes != null && !allowedTypes.trim().isEmpty()) {
+        this.allowedMimeTypes = Arrays.asList(allowedTypes.trim().split("\\s+"));
+    } else {
+    	this.allowedMimeTypes = Arrays.asList("application/xml", "text/xml", "json", "opensearchdescription+xml");
+    }
   }
 
   /**

@@ -16,7 +16,6 @@ import org.apache.nutch.parse.ParseData;
 import org.apache.nutch.parse.ParseResult;
 import org.apache.nutch.protocol.Content;
 import org.junit.Test;
-import org.mockito.ArgumentCaptor;
 
 
 public class RawXmlParseFilterTest {
@@ -37,15 +36,15 @@ public class RawXmlParseFilterTest {
 		verify(mockMetadata).add(eq(RawXmlParseFilter.RAW_CONTENT), anyString()); 
 	}
 	
-	//TODO: This is very similar to previous - should merge?
+	//TODO: This needs to be refactored to make tests easier.
 	@Test
-	public void filter_should_wrap_content_in_CDATA() {
+	public void filter_should_add_raw_content() {
 		// arrange
-		String contentValue = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?><some>xml</some>";
+		String contentValue = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?> <some>xml </some>";
 		Metadata mockMetadata = mock(Metadata.class);		
 		ParseResult mockParseResult = createMockParseResultWithMetadata(
 				mockMetadata);
-		Content fakeContent = createFakeContent("", contentValue);
+		Content fakeContent = createFakeContent("http://fake.url", contentValue);
 		
 		RawXmlParseFilter parseFilter = new RawXmlParseFilter();
 		
@@ -53,33 +52,11 @@ public class RawXmlParseFilterTest {
 		parseFilter.filter(fakeContent, mockParseResult, null, null);
 		
 		// assert
-		verify(mockMetadata).add(anyString(), startsWith("<![CDATA["));
-		verify(mockMetadata).add(anyString(), endsWith("]]>"));
-	}
+		verify(mockMetadata).add(anyString(), startsWith("<?xml"));
+		verify(mockMetadata).add(anyString(), endsWith("</some>"));
 	
-	@Test
-	public void filter_should_remove_CDATA_sections_in_input_documents() {
-		// arrange
-		String contentValue = "<some><![CDATA[<?blah ?>]]>cdata</some>";
-		Metadata mockMetadata = mock(Metadata.class);		
-		ParseResult mockParseResult = createMockParseResultWithMetadata(
-				mockMetadata);
-		Content fakeContent = createFakeContent("", contentValue);
-		
-		RawXmlParseFilter parseFilter = new RawXmlParseFilter();
-		
-		// act
-		parseFilter.filter(fakeContent, mockParseResult, null, null);
-		
-		// assert
-		ArgumentCaptor<String> argumentCaptor = ArgumentCaptor.forClass(String.class);
-		verify(mockMetadata).add(anyString(), argumentCaptor.capture());
-		String contentReceived = argumentCaptor.getValue();
-
-		assertTrue(contentReceived.startsWith("<![CDATA"));
-		assertTrue(contentReceived.endsWith("]]>"));
-		assertTrue(contentReceived.contains("<some><![CDATA[<?blah ?>]]>cdata</some>"));
 	}
+
 	
 	@Test
 	public void filter_should_modify_and_return_the_same_ParseResult() {
@@ -99,7 +76,7 @@ public class RawXmlParseFilterTest {
 	@Test
 	public void filter_should_get_the_ParseResult_based_on_the_Content_url() {
 		// arrange
-		final String url = "http://some,document.url/123?abc";
+		final String url = "http://some.document.url/123?abc";
 		ParseResult mockParseResult = createMockParseResult();
 		Content fakeContent = createFakeContent(url);
 		
