@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin id="index-xmlnamespaces" name="Apache Nutch Index raw xml filter" version="1.4" provider-name="nutch.org">
+
+   	<runtime>
+      	<library name="index-xmlnamespaces.jar">
+         	<export name="*"/>
+      	</library>
+      	<library name="log4j.jar"/>
+   	</runtime>
+
+   	<requires>
+      	<import plugin="nutch-extensionpoints"/>
+   	</requires>
+
+   	<extension id="org.nsidc.nutch.indexer.xmlnamespaces" name="Nutch solrxml Indexing Filter" point="org.apache.nutch.indexer.IndexingFilter">
+      	<implementation id="org.nsidc.nutch.indexer.xmlnamespaces" class="org.nsidc.nutch.index.xmlnamespaces.NamespaceIndexingFilter"/>
+   	</extension>
+
+</plugin>

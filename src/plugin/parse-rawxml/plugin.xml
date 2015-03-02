@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin id="parse-rawxml" 
+        name="Nutch RawXML parser" 
+        version="0.0.1" 
+        provider-name="nsidc.org">
+
+   	<runtime>
+      	<library name="parse-rawxml.jar">
+         	<export name="*"/>
+      	</library>
+   	</runtime>
+
+   	<requires>
+      	<import plugin="nutch-extensionpoints"/>
+   	</requires>
+
+   	<extension id="org.nsidc.nutch.parse.rawxml" 
+   	           name="Nutch Raw XML Parse Filter"
+   	           point="org.apache.nutch.parse.HtmlParseFilter">
+   	           
+      	<implementation id="org.nsidc.nutch.parse.rawxml.RawXmlParseFilter" 
+                        class="org.nsidc.nutch.parse.rawxml.RawXmlParseFilter" >
+        
+        	<parameter name="contentType" value="text/xml|application/xml"/>
+        </implementation>
+   	</extension>
+
+</plugin>
