@@ -116,6 +116,7 @@ public class Http extends HttpBase {
     this.proxyUsername = conf.get("http.proxy.username", "");
     this.proxyPassword = conf.get("http.proxy.password", "");
     this.proxyRealm = conf.get("http.proxy.realm", "");
+    this.userAgent = conf.get("http.agent.name");
     agentHost = conf.get("http.agent.host", "");
     authFile = conf.get("http.auth.file", "");
     configureClient();
@@ -182,7 +183,7 @@ public class Http extends HttpBase {
     HostConfiguration hostConf = client.getHostConfiguration();
     ArrayList<Header> headers = new ArrayList<Header>();
     // Set the User Agent in the header
-    headers.add(new Header("User-Agent", "Bcube-test-crawler"));
+    headers.add(new Header("User-Agent", this.userAgent));
     // prefer English
     headers.add(new Header("Accept-Language", acceptLanguage));
     // prefer UTF-8

@@ -1,6 +1,6 @@
 Nutch Crawler
 =========
-The BCube Crawler is a fork of the Apache Nutch project (version 1.9) tweaked to run on Amazon's ElasticMapReduce and optimized for data and web services discovery.
+The BCube Crawler is a fork of the Apache Nutch project (version 1.9) tweaked to run on Amazon's ElasticMapReduce and optimized for web services and data discovery.
 
 
 Motivation
@@ -8,7 +8,7 @@ Motivation
 
 Setting up a healthy Hadoop cluster is not always an easy task and the variables that make an application to perform well could add a lot of overhead to a project. ElasticMapReduce is -as its name suggests- a “MapReduce as a service” platform that allows users to create resizable Hadoop clusters and run MapReduce jobs. A key advantage of Amazon’s EMR platform is the flexibility to resize a cluster on the fly and the possibility of using spot instances to dynamically increase the computational power at lower costs. 
 
-There are some limitations on EMR like preconfigured MR settings or that it only supports a set of [Hadoop distributions](http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-hadoop-version.html). This and the fact that the “all-in-one” Crawl class was deprecated since Nutch 1.8 creates 2 issues if we try to run Nutch using the EMR API.
+There are some limitations on EMR like preconfigured MR settings or that it only supports a set of [Hadoop distributions](http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-hadoop-version.html). This and the fact that the “all-in-one” Crawl class was deprecated since Nutch 1.8 creates issues if we try to run Nutch using the EMR API.
 
 In order to make use of the EMR API and automate our crawls we need to send a jar and a main class as entry point. This project adds back the main Crawl class deprecated in Nutch 1.6 and offers 3 important features when crawling using EMR
 
@@ -49,15 +49,14 @@ emr=true
 First we need to clone Nutch from NSIDC's repo and switch to the aws-emr branch.
 
 ```sh
-git clone https://github.com/nsidc/nutch.git
-cd nutch
-git checkout aws-emr
+git clone https://github.com/b-cube/nutch-crawler.git
+cd nutch-crawler
 ```
 
 Then we need to update the nutch-site.xml configuration file with the appropriate values, see this [Nutch tutorial](https://groups.drupal.org/node/105774) and [Nutch FAQ](http://wiki.apache.org/nutch/FAQ). Once we modify nutch-site.xml we proceed to compile Nutch with Ant.
+Before we compile Nutch we need to set our JAVA_HOME to a working JRE environment. We can use `readlink -f $(which java)` to know our java path. 
 
 ```sh
-export JAVA_HOME=`readlink -f $(which java)`
 ant clean runtime
 ```
 
