@@ -6,11 +6,11 @@ The BCube Crawler is a fork of the Apache Nutch project (version 1.9) tweaked to
 Motivation
 ----
 
-Setting up a healthy Hadoop cluster is not always an easy task and the variables that make an application to perform well could add a lot of overhead to a project. ElasticMapReduce is -as its name suggests- a “MapReduce as a service” platform that allows users to create resizable Hadoop clusters and run MapReduce jobs. A key advantage of Amazon’s EMR platform is the flexibility to resize a cluster on the fly and the possibility of using spot instances to dynamically increase the computational power at lower costs. 
+Setting up a healthy Hadoop cluster is not always an easy task and the variables that make an application to perform well could add a lot of overhead to a project. ElasticMapReduce is -as its name suggests- a “MapReduce as a service” platform that allows users to create resizable Hadoop clusters and run MapReduce jobs. A key advantage of Amazon’s EMR platform is the flexibility to resize a cluster on the fly and the possibility of using spot instances to dynamically increase the computational power at lower costs.
 
-There are some limitations on EMR like preconfigured MR settings or that it only supports a set of [Hadoop distributions](http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-hadoop-version.html). This and the fact that the “all-in-one” Crawl class was deprecated since Nutch 1.8 creates issues if we try to run Nutch using the EMR API.
+There are some limitations on EMR like preconfigured MR settings or that it only supports a set of [Hadoop distributions](http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-hadoop-version.html). This and the fact that the “all-in-one” Crawl class was deprecated since Nutch 1.7 creates issues if we try to run Nutch using the EMR API.
 
-In order to make use of the EMR API and automate our crawls we need to send a jar and a main class as entry point. This project adds back the main Crawl class deprecated in Nutch 1.6 and offers 3 important features when crawling using EMR
+In order to make use of the EMR API and automate our crawls we need to send a jar and a main class as entry point. This project adds back the main Crawl class and offers 3 important features when crawling using EMR:
 
 * **-fetchers**: Sets the number of nodes to use on each Fetch step
   This is important because on each round we can adjust the number of active nodes to match the current cluster size. Also because of the default values of mapred-site on EMR we ran into the issues described [here](http://stackoverflow.com/questions/10264183/why-does-nutch-only-run-the-fetch-step-on-one-hadoop-node-when-the-cluster-has) and this paramter will override the default 1 reducer for the generate-list step.
@@ -22,7 +22,7 @@ In order to make use of the EMR API and automate our crawls we need to send a ja
 Running Nutch on Amazon's EMR
 ----
 
-Running Nutch on Amazon's EMR is not a difficult thing to do, however we need to perform some steps before we can see indexed documents in a Solr instance. 
+Running Nutch on Amazon's EMR is not a difficult thing to do, however we need to perform some steps before we can see indexed documents in a Solr instance.
 
 ### Prerequsites
 
@@ -54,16 +54,16 @@ cd nutch-crawler
 ```
 
 Then we need to update the nutch-site.xml configuration file with the appropriate values, see this [Nutch tutorial](https://groups.drupal.org/node/105774) and [Nutch FAQ](http://wiki.apache.org/nutch/FAQ). Once we modify nutch-site.xml we proceed to compile Nutch with Ant.
-Before we compile Nutch we need to set our JAVA_HOME to a working JRE environment. We can use `readlink -f $(which java)` to know our java path. 
+Before we compile Nutch we need to set our JAVA_HOME to a working JRE environment. We can use `readlink -f $(which java)` to know our java path.
 
 ```sh
 ant clean runtime
 ```
 
-This should create a new "runtime" folder with 2 directories, local and deploy. We are now ready to upload apache-nutch-1.6.job from the deploy directory to an AWS S3 bucket. Remember that EMR requires that our MR job/jar file is in a S3 bucket. 
+This should create a new "runtime" folder with 2 directories, local and deploy. We are now ready to upload apache-nutch-1.9.job from the deploy directory to an AWS S3 bucket. Remember that EMR requires that our MR job/jar file is in a S3 bucket.
 
 ```sh
-aws s3 cp /path/to/apache-nutch-1.6.job s3://your-s3-bucket/
+aws s3 cp /path/to/apache-nutch-1.9.job s3://your-s3-bucket/
 ```
 You also need to upload your seeds file to S3.
 
@@ -85,7 +85,7 @@ Before launching a new crawl we should note some aspects of a web crawl and in p
 
 An important thing to decide now is what instance type should we use for our crawls. EMR provides a variaty of EC2 instances and each comes with different MR capacities and pricing. In our case we picked **m1.medium** instances as they come with 2 mappers and one reducer and just enough ram for our Nutch jobs. You can see a list of available instance types [here](http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/TaskConfiguration_H1.0.3.html) and their pricing [here](http://aws.amazon.com/elasticmapreduce/pricing/).
 
-Given that we have a web-accessible Solr instance we are ready to start crawling using EMR. 
+Given that we have a web-accessible Solr instance we are ready to start crawling using EMR.
 
 
 ```sh
@@ -93,7 +93,7 @@ aws emr run-job-flow --name YOUR_CRAWL_NAME --instances $JOB_PROPERTIES --steps 
 ```
 
 * **YOUR_CRAWL_NAME**: The name of the Job in yout EMR console. It may describe the nature of your crawl.
-* **$JOB_PROPERTIES**: A JSON hash with the following key/value pairs: 
+* **$JOB_PROPERTIES**: A JSON hash with the following key/value pairs:
 
         "{
             \"InstanceCount\": #{cluster_nodes},
@@ -101,26 +101,26 @@ aws emr run-job-flow --name YOUR_CRAWL_NAME --instances $JOB_PROPERTIES --steps 
             \"HadoopVersion\": \"1.0.3\",
             \"KeepJobFlowAliveWhenNoSteps\": false,
             \"SlaveInstanceType\": \"#{slave_type}\",
-            \"Ec2KeyName\": \"x1\"
+            \"Ec2KeyName\": \"KeyName\"
         }"
 
 * **$HADOOP_STEPS**: A JSON array with the following key/value pairs:
 
         [
           { \"HadoopJarStep\":
-            { 
+            {
           \"MainClass\": \"org.apache.nutch.crawl.Crawl\",
           \"Args\": [\"s3://YOUR_BUCKET/seeds.txt\",\"-dir\", \"crawl\", \"-depth\", \"$DEPTH\",\"-solr\", \"$SOLR\" , \"-topN\", \"$TOPN\", \"-fetchers\", \"$FETCHERS\", \"-deleteSegments\", \"$DELETESEG\"],
-          \"Jar\": \"s3://YOUR_S3_BUCKET/apache-nutch-1.6.job\"}, 
+          \"Jar\": \"s3://YOUR_S3_BUCKET/apache-nutch-1.9.job\"},
           \"Name\": \"YOUR_CRAWL_NAME\"
-           } 
+           }
         ]
 
     *   **-topN**: The maximun number of pages to crawl on each round.
     *   **-depth**: How many levels the crawl shouls go starting from the seed URLs.
     *   **-fetchers**: How many fetch list should be generated, hence how many nodes in the cluster should fetch. To optimize resources this value should be set to match the number of nodes in the cluster.
     *   **-deleteSegments**: Boolean, whether to delete all the indexed segments after each crawl or keep them.
-    
+
 To makes things easier The aws-emr branch comes with a **Rakefile** that can perform a call to AWS's EMR API for us.
 
 **rake emr:crawl[PARAMS]**
@@ -135,18 +135,18 @@ normally more is better however benchmarks have shown that crawling a **few doma
 * **EC2 instance type**: defines what kind of EC2 instance type the EMR cluster.
 For small or medium size cluster a m1.large type is more than enough. m1.medium types are normally a performing instance as well(not to mention that they are cheaper).
 
-* **Crawling Depth**: Defines the number of levels to crawl from the initial seed list, this is better visualized here (slide 15), from 1 to 5 we will hardly find interesting xml files unless they are 
+* **Crawling Depth**: Defines the number of levels to crawl from the initial seed list, this is better visualized here (slide 15), from 1 to 5 we will hardly find interesting xml files unless they are
 offered in the index page or the pages used in the seed list. Appropriate values range from 5 to 20 levels.
 
-* **Max Documents per Level**: This is the top value of documents to fetch on each level, if there are more pages in a level than this value they will be ignored. The pages are ordered using a modified 
+* **Max Documents per Level**: This is the top value of documents to fetch on each level, if there are more pages in a level than this value they will be ignored. The pages are ordered using a modified
 version of the page rank algorithm, details of its implementation can be found [here](https://wiki.apache.org/nutch/NewScoring).
 
 * **Delete Segments After Indexing**: A boolean value telling Nutch if it should delete the parsed segments from HDFS after they are indexed into Solr.
 
-* **Save Crawled Data**: A boolean value telling the cluster if it should copy the crawled data to an S3 bucket before the cluster gets destroyed after completed a crawl. 
+* **Save Crawled Data**: A boolean value telling the cluster if it should copy the crawled data to an S3 bucket before the cluster gets destroyed after completed a crawl.
 The crawled data is not necessary unless we want all of the documents crawled and not just the xml files that are indexed.
 
-* **Solr URL**: The Solr url where the found xml documents are going to be indexed. This is a temporary setup, in the near future we'll have predefined domains with basic authentication. 
+* **Solr URL**: The Solr url where the found xml documents are going to be indexed. This is a temporary setup, in the near future we'll have predefined domains with basic authentication.
 Solr is used because the EMR branch comes from the 1.6 branch with no ElasticSearch support yet.
 
 **Example**
@@ -158,7 +158,7 @@ rake emr:crawl[your_s3_bucket,your_s3_bucket/urls,9,m1.medium,10,100000,false,fa
 
 What this Rake task is doing is creating a new EMR cluster using Nutch's job file in your s3 bucket and your seed list as inputs. The output should be documents indexed into your Solr instance and Hadoop logs in your s3 bucket.
 
-If you want to keep the content of the crawl for future usage or analysis you can do it by setting to true the Save_Crawled_Data parameter. This will copy all of Nutch's data structures back to your s3 bucket. 
+If you want to keep the content of the crawl for future usage or analysis you can do it by setting to true the Save_Crawled_Data parameter. This will copy all of Nutch's data structures back to your s3 bucket.
 
 **note**: Copying data back to an s3 bucket can take some time and depending on the size of your crawl it could be a lot of Gigabytes.
 

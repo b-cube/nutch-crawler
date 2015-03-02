@@ -66,7 +66,7 @@ namespace :emr do
                   {
                     \"MainClass\": \"org.apache.nutch.crawl.Crawl\",
                     \"Args\": [\"s3://#{s3_seeds}\", \"-dir\", \"crawl\", \"-depth\", \"#{depth}\", \"-solr\", \"#{solr_host}\" , \"-topN\", \"#{topN}\" , \"-fetchers\", \"#{numFetchers}\", \"-deleteSegments\", \"#{deleteSegments}\"],
-                    \"Jar\": \"s3://bcube-nutch-job/apache-nutch-1.6.job\"
+                    \"Jar\": \"s3://bcube-nutch-job/apache-nutch-1.9.job\"
                   }, \"Name\": \"nutch-crawl\"
                 }
               ]"
@@ -76,14 +76,14 @@ namespace :emr do
                   {
                     \"MainClass\": \"org.apache.nutch.crawl.Crawl\",
                     \"Args\": [\"s3://#{s3_seeds}\", \"-dir\", \"crawl\", \"-depth\", \"#{depth}\", \"-solr\", \"#{solr_host}\" , \"-topN\", \"#{topN}\", \"-fetchers\", \"#{numFetchers}\", \"-deleteSegments\", \"#{deleteSegments}\"],
-                    \"Jar\": \"s3://bcube-nutch-job/apache-nutch-1.6.job\"
+                    \"Jar\": \"s3://bcube-nutch-job/apache-nutch-1.9.job\"
                   }, \"Name\": \"nutch-crawl\"
                 },
                 { \"HadoopJarStep\":
                   {
                     \"MainClass\": \"org.apache.nutch.segment.SegmentMerger\",
                     \"Args\": [\"crawl/mergedsegments\", \"-dir\", \"crawl/segments\"],
-                    \"Jar\": \"s3://bcube-nutch-job/apache-nutch-1.6.job\"
+                    \"Jar\": \"s3://bcube-nutch-job/apache-nutch-1.9.job\"
                   }, \"Name\": \"nutch-crawl\"
                 },
                 { \"HadoopJarStep\":
@@ -115,7 +115,7 @@ namespace :emr do
               \"HadoopVersion\": \"1.0.3\",
               \"KeepJobFlowAliveWhenNoSteps\": false,
               \"SlaveInstanceType\": \"#{slave_type}\",
-              \"Ec2KeyName\": \"x1\"
+              \"Ec2KeyName\": \"YourKeyName\"
             }".delete(" ")
   end
 
