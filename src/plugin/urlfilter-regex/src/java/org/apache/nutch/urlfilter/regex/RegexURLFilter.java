@@ -97,7 +97,8 @@ public class RegexURLFilter extends RegexURLFilterBase {
     }
 
     protected boolean match(String url) {
-      return pattern.matcher(url).find();
+      // LowerCase works better as we don't want to duplicate rules.
+      return pattern.matcher(url.toLowerCase()).find();
     }
   }
   

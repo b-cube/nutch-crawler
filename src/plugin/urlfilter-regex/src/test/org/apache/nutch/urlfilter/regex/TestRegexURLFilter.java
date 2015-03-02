@@ -48,11 +48,34 @@ public class TestRegexURLFilter extends RegexURLFilterBaseTest {
   public void test() {
     test("WholeWebCrawling");
     test("IntranetCrawling");
-    bench(50, "Benchmarks");
-    bench(100, "Benchmarks");
-    bench(200, "Benchmarks");
-    bench(400, "Benchmarks");
-    bench(800, "Benchmarks");
+
+    // Benchmarks on Intel i53570k
+    
+    bench(50, "Benchmarks"); //  bench time (50) 126ms
+    bench(100, "Benchmarks"); // bench time (100) 131ms
+    bench(200, "Benchmarks"); // bench time (200) 251ms
+    bench(400, "Benchmarks"); // bench time (400) 500ms
+    bench(800, "Benchmarks"); // bench time (800) 999ms
+    
+    // The set of rules for BCube slows down the generation process 
+    // but help a lot on limiting the crawl to sites of interest.
+    test("BCube");       
+    bench(50, "BCube");  // bench time (50) 595ms
+    bench(100, "BCube"); // bench time (100) 1153ms
+    bench(200, "BCube"); // bench time (200) 2353ms
+    bench(400, "BCube"); //bench time (400) 4671ms
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
   }
 
 }

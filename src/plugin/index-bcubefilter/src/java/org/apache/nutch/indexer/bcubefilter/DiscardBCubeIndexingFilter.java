@@ -52,7 +52,8 @@ public class DiscardBCubeIndexingFilter implements IndexingFilter {
   */
   public NutchDocument filter(NutchDocument doc, Parse parse, Text url, CrawlDatum datum, Inlinks inlinks)
     throws IndexingException {
-	  if(mimeTypeFilter(doc)) {
+	  // For now just the mime type affects this filter 
+	  if(mimeTypeFilter(doc) && urlFilter(doc) && relevantOrNot(doc)) {
 		  return doc;
 	  }
 	  return null;
@@ -60,7 +61,7 @@ public class DiscardBCubeIndexingFilter implements IndexingFilter {
   
   public boolean urlFilter(NutchDocument doc) {
 	  //TODO [This should not be a replacement for the URL regex.]
-	  return false;
+	  return true;
   }
   
   public boolean relevantOrNot(NutchDocument doc) {
@@ -68,14 +69,13 @@ public class DiscardBCubeIndexingFilter implements IndexingFilter {
 	  //  a set of limited tokens to a service that will decide 
 	  //  if it is relevant (meaning is a web service or data) 
 	  //  and therefore it should be indexed.
-	  return false;
+	  return true;
   }  
   
   
   public boolean mimeTypeFilter(NutchDocument doc) {
-    if (doc.getField("type") != null) {    
-    	List<Object> docType = doc.getField("type").getValues();
-    	String documentType = docType.get(0).toString();
+    if (doc.getField("type") != null) {
+    	String documentType = doc.getField("type").getValues().get(0).toString();
 	    for (String allowedType : this.allowedMimeTypes) {
     	  if (documentType.contains(allowedType)) {
     		  // will be indexed

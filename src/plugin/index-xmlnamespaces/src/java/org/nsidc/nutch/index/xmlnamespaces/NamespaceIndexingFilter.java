@@ -51,9 +51,18 @@ public class NamespaceIndexingFilter implements IndexingFilter {
 	public NutchDocument filter(NutchDocument doc, Parse parse, Text url,
 			CrawlDatum datum, Inlinks inlinks) throws IndexingException {
 		// If the raw_content is null or the document type do not contains xml then we just return the document as is.
-		if (doc.getField("raw_content") == null || !doc.getField("type").getValues().contains("xml")) {
+		String documentType;
+		if (doc.getField("type") != null) {
+	      documentType = doc.getField("type").getValues().get(0).toString();
+		  if (doc.getField("raw_content") == null || !documentType.contains("xml")) {
+			//because it's not XML we are not adding namespaces.
 			return doc;
-		}		
+		  }		      
+		} else {
+			//we don't know the type, skipping document
+		  return doc;
+		}
+	
 		String raw_xml_content = doc.getField("raw_content").getValues().get(0).toString();
 		
 		List<String> namespaces = getNameSpaces(raw_xml_content);

@@ -21,7 +21,7 @@
 -.*(/.+?)/.*?\1/.*?\1/
 
 # accept hosts in MY.DOMAIN.NAME
-+^http://([a-z0-9]*\.)*MY.DOMAIN.NAME/
++^http://([a-z0-9]*\.)*my.domain.name/
 
 # skip everything else
 -.

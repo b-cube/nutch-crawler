@@ -42,9 +42,9 @@ public abstract class RegexURLFilterBaseTest {
   /** My logger */
   protected static final Logger LOG = LoggerFactory.getLogger(RegexURLFilterBaseTest.class);  
 
-  private final static String SEPARATOR = System.getProperty("file.separator");  
+  private final static String SEPARATOR = System.getProperty("file.separator");
+  // 
   private final static String SAMPLES = System.getProperty("test.data", ".");
-
   protected abstract URLFilter getURLFilter(Reader rules);
 
   protected void bench(int loops, String file) {

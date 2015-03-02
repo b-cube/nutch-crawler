@@ -1,0 +1,361 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<!-- Put site-specific property overrides in this file. -->
+
+<configuration>
+
+  <property>
+    <name>http.agent.name</name>
+    <value>bcube.test.crawler</value>
+    <description>HTTP 'User-Agent' request header.</description>
+  </property>
+
+  <property>
+    <name>http.agent.url</name>
+    <value>http://nsidc.org</value>
+    <description>A URL to advertise in the User-Agent header.  This will
+     appear in parenthesis after the agent name.
+    </description>
+  </property>
+
+  <property>
+    <name>http.agent.description</name>
+    <value>NSIDC BCUbe Web Service Search Engine</value>
+    <description>Further description of our bot- this text is used in
+    the User-Agent header.  It appears in parenthesis after the agent name.
+    </description>
+  </property>
+
+  <property>
+    <name>http.agent.email</name>
+    <value>cubists at nsidc dot com</value>
+    <description>An email address to advertise in the HTTP 'From' request
+     header and User-Agent header.
+    </description>
+  </property>
+
+  <property>
+    <name>http.agent.host</name>
+    <value>nsidc.org</value>
+    <description>Name or IP address of the host on which the Nutch crawler
+    would be running. Currently this is used by 'protocol-httpclient'
+    plugin.
+    </description>
+  </property>
+
+  <!-- DB properties -->
+
+  <property>
+    <name>db.ignore.external.links</name>
+    <value>false</value>
+    <description>If true, outlinks leading from a page to external hosts
+    will be ignored.
+    </description>
+  </property>
+
+  <property>
+    <name>db.update.purge.404</name>
+    <value>true</value>
+    <description>If true, updatedb will add purge records with status DB_GONE
+    from the CrawlDB.
+    </description>
+  </property>
+
+  <!-- END of DB properties -->
+
+  <property>
+    <name>http.content.limit</name>
+    <value>131072</value>
+    <description>The length limit for downloaded content using the http://
+    protocol, in bytes. If this value is nonnegative (>=0), content longer
+    than it will be truncated; otherwise, no truncation at all. Do not
+    confuse this setting with the file.content.limit setting.
+    </description>
+  </property>
+
+  <!-- PLUGINS SECTION-->
+  <property>
+    <name>plugin.folders</name>
+    <value>plugins</value>
+    <description>Directories where nutch plugins are located.  Each
+    element may be a relative or absolute path.  If absolute, it is used
+    as is.  If relative, it is searched for on the classpath.</description>
+  </property>
+
+  <property>
+    <name>plugin.includes</name>
+    <value>protocol-(http|httpclient)|urlfilter-regex|parse-(html|tika|rawxml)|index-(basic|fetchdate|anchor|more|rawxml|xmlnamespaces|bcubefilter)|indexer-solr|urlnormalizer-(pass|regex|basic)</value>
+    <description>Regular expression naming plugin directory names to
+    include.  Any plugin not matching this expression is excluded.
+    In any case you need at least include the nutch-extensionpoints plugin. By
+    default Nutch includes crawling just HTML and plain text via HTTP,
+    and basic indexing and search plugins. In order to use HTTPS please enable
+    protocol-httpclient, but be aware of possible intermittent problems with the
+    underlying commons-httpclient library.
+    </description>
+  </property>
+  
+  <property>
+    <name>indexingfilter.order</name>
+    <value>org.apache.nutch.indexer.basic.BasicIndexingFilter org.apache.nutch.indexer.fetchdate.FetchDateIndexingFilter org.apache.nutch.indexer.anchor.AnchorIndexingFilter org.apache.nutch.indexer.more.MoreIndexingFilter org.nsidc.nutch.index.rawxml.RawXMLIndexingFilter org.nsidc.nutch.index.xmlnamespaces.NamespaceIndexingFilter org.apache.nutch.indexer.bcubefilter.DiscardBCubeIndexingFilter</value>
+    <description>The order by which index filters are applied.
+    If empty, all available index filters (as dictated by properties
+    plugin-includes and plugin-excludes above) are loaded and applied in system
+    defined order. If not empty, only named filters are loaded and applied
+    in given order. For example, if this property has value:
+    org.apache.nutch.indexer.basic.BasicIndexingFilter org.apache.nutch.indexer.more.MoreIndexingFilter
+    then BasicIndexingFilter is applied first, and MoreIndexingFilter second.
+
+    Filter ordering might have impact on result if one filter depends on output of
+    another filter.
+    </description>
+  </property>
+  
+ <property>
+  <name>moreIndexingFilter.indexMimeTypeParts</name>
+  <value>false</value>
+  <description>Determines whether the index-more plugin will split the mime-type
+  in sub parts, this requires the type field to be multi valued. Set to true for backward
+  compatibility. False will not split the mime-type.
+  </description>
+</property>
+  
+  <property>
+    <name>indexingfilter.bcube.allowed.mimetypes</name>
+	<value>application/xml text/xml json</value>
+	<description>
+	    Determines the allowed mime types to index. It performs a partial matching, i.e.
+	    if a document has application/json and a value in this property is json or tion/json then that
+	    document will be indexed.
+	</description>
+  </property>
+  
+ <property>
+    <name>indexingfilter.bcube.forbidden.url.patterns</name>
+	<value></value>
+	<description>
+	    TODO
+	</description>
+  </property>  
+  
+<!-- generator properties -->
+
+	<property>
+	  <name>generate.count.mode</name>
+	  <value>host</value>
+	  <description>Determines how the URLs are counted for generator.max.count.
+	  Default value is 'host' but can be 'domain'. Note that we do not count
+	  per IP in the new version of the Generator.
+	  </description>
+	</property>
+
+	<property>
+	  <name>generate.max.count</name>
+	  <value>-1</value>
+	  <description>The maximum number of urls in a single
+	  fetchlist.  -1 if unlimited. The urls are counted according
+	  to the value of the parameter generator.count.mode.
+	  </description>
+	</property>
+
+<!-- url partition and fetcher properties -->
+  <property>
+    <name>partition.url.mode</name>
+    <value>byHost</value>
+    <description>Determines how to partition URLs. Default value is 'byHost',
+    also takes 'byDomain' or 'byIP'.
+    </description>
+  </property>
+
+  <property>
+    <name>fetcher.queue.mode</name>
+    <value>byHost</value>
+    <description>Determines how to put URLs into queues. Default value is 'byHost',
+    also takes 'byDomain' or 'byIP'. Replaces the deprecated parameter
+    'fetcher.threads.per.host.by.ip'.
+    </description>
+  </property>
+
+  <property>
+    <name>fetcher.server.delay</name>
+    <value>1</value>
+    <description>The number of seconds the fetcher will delay between
+     successive requests to the same server.</description>
+  </property>
+
+  <property>
+    <name>fetcher.server.min.delay</name>
+    <value>0.0</value>
+    <description>The minimum number of seconds the fetcher will delay between
+    successive requests to the same server. This value is applicable ONLY
+    if fetcher.threads.per.host is greater than 1 (i.e. the host blocking
+    is turned off).</description>
+  </property>
+
+  <property>
+   <name>fetcher.max.crawl.delay</name>
+   <value>11</value>
+   <description>
+   If the Crawl-Delay in robots.txt is set to greater than this value (in
+   seconds) then the fetcher will skip this page, generating an error report.
+   If set to -1 the fetcher will never skip such pages and will wait the
+   amount of time retrieved from robots.txt Crawl-Delay, however long that
+   might be.
+   </description>
+  </property>
+
+  <property>
+    <name>fetcher.threads.fetch</name>
+    <value>16</value>
+    <description>The number of FetcherThreads the fetcher should use.
+    This is also determines the maximum number of requests that are
+    made at once (each FetcherThread handles one connection). The total
+    number of threads running in distributed mode will be the number of
+    fetcher threads * number of nodes as fetcher has one map task per node.
+
+
+    [Luis 05/2014] This is the most important property to limit
+    bandwidth usage because it sets the number of threads that can send
+    an HTTP request simultaneously, on average each thread consumed 100KBps
+    (given the 1 second fetcher.server.delay in a medium.large EC2 instance)
+    </description>
+  </property>
+
+  <property>
+    <name>fetcher.threads.per.queue</name>
+    <value>4</value>
+    <description>This number is the maximum number of threads that
+      should be allowed to access a queue at one time. Replaces
+      deprecated parameter 'fetcher.threads.per.host'.
+
+      [Luis 05/2014] This property sets the number of parallel requests
+      to the same host when the fetcher.queue.mode property is set to "byHost"
+      a lot of threads per host could result in Nutch acting like a DOS attack.
+     </description>
+  </property>
+
+  <property>
+    <name>fetcher.verbose</name>
+    <value>false</value>
+    <description>If true, fetcher will log more verbosely.</description>
+  </property>
+
+  <property>
+    <name>fetcher.parse</name>
+    <value>false</value>
+    <description>If true, fetcher will parse content. Default is false, which means
+    that a separate parsing step is required after fetching is finished.</description>
+  </property>
+
+  <property>
+    <name>fetcher.store.content</name>
+    <value>true</value>
+    <description>If true, fetcher will store content.</description>
+  </property>
+
+  <property>
+    <name>fetcher.timelimit.mins</name>
+    <value>-1</value>
+    <description>This is the number of minutes allocated to the fetching.
+    Once this value is reached, any remaining entry from the input URL list is skipped
+    and all active queues are emptied. The default value of -1 deactivates the time limit.
+    </description>
+  </property>
+
+  <property>
+    <name>fetcher.max.exceptions.per.queue</name>
+    <value>-1</value>
+    <description>The maximum number of protocol-level exceptions (e.g. timeouts) per
+    host (or IP) queue. Once this value is reached, any remaining entries from this
+    queue are purged, effectively stopping the fetching from this host/IP. The default
+    value of -1 deactivates this limit.
+    </description>
+  </property>
+
+  <property>
+    <name>fetcher.throughput.threshold.pages</name>
+    <value>-1</value>
+    <description>The threshold of minimum pages per second. If the fetcher downloads less
+    pages per second than the configured threshold, the fetcher stops, preventing slow queue's
+    from stalling the throughput. This threshold must be an integer. This can be useful when
+    fetcher.timelimit.mins is hard to determine. The default value of -1 disables this check.
+    </description>
+  </property>
+
+  <property>
+    <name>fetcher.throughput.threshold.retries</name>
+    <value>2</value>
+    <description>The number of times the fetcher.throughput.threshold is allowed to be exceeded.
+    This settings prevents accidental slow downs from immediately killing the fetcher thread.
+    </description>
+  </property>
+
+  <property>
+    <name>fetcher.throughput.threshold.check.after</name>
+    <value>2</value>
+    <description>The number of minutes after which the throughput check is enabled.</description>
+  </property>
+
+  <property>
+    <name>fetcher.follow.outlinks.ignore.external</name>
+    <value>true</value>
+    <description>Whether to ignore or follow external links. Set db.ignore.external.links to false and this to true to store outlinks
+    in the output but not follow them. If db.ignore.external.links is true this directive is ignored.
+    </description>
+  </property>
+
+
+  <!-- Solr properties -->
+
+  <property>
+  <name>solr.commit.size</name>
+  <value>250</value>
+  <description>
+  Defines the number of documents to send to Solr in a single update batch.
+  Decrease when handling very large documents to prevent Nutch from running
+  out of memory. NOTE: It does not explicitly trigger a server side commit.
+  </description>
+</property>
+
+<property>
+  <name>solr.commit.index</name>
+  <value>false</value>
+  <description>
+  When closing the indexer, trigger a commit to the Solr server.
+  </description>
+</property>
+
+<property>
+  <name>solr.server.url</name>
+  <value>http://52.10.124.186:8888/solr</value>
+  <description>
+      Solr
+  </description>
+</property>
+
+<property>
+  <name>solr.auth</name>
+  <value>true</value>
+  <description>
+  Whether to enable HTTP basic authentication for communicating with Solr.
+  Use the solr.auth.username and solr.auth.password properties to configure
+  your credentials.
+  </description>
+</property>
+
+<property>
+  <name>solr.auth.username</name>
+  <value></value>
+  <description>
+  </description>
+</property>
+
+<property>
+  <name>solr.auth.password</name>
+  <value></value>
+  <description>
+  </description>
+</property>
+
+</configuration>

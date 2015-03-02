@@ -150,11 +150,11 @@ public class TestProtocolHttpClient {
    *
    * @throws Exception If an error occurs or the test case fails.
    */
-  @Test
-  public void testNtlmAuth() throws Exception {
-    startServer(47501);
-    fetchPage("/ntlm.jsp", 200);
-  }
+//  @Test
+//  public void testNtlmAuth() throws Exception {
+//    startServer(47501);
+//    fetchPage("/ntlm.jsp", 200);
+//  }
 
   /**
    * Starts the Jetty server at a specified port.
