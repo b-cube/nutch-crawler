@@ -85,7 +85,7 @@
 
   <property>
     <name>plugin.includes</name>
-    <value>protocol-(http|httpclient)|urlfilter-regex|parse-(html|tika|rawxml)|index-(basic|fetchdate|anchor|more|rawxml|xmlnamespaces|bcubefilter)|indexer-solr|urlnormalizer-(pass|regex|basic)</value>
+    <value>protocol-(http|httpclient)|urlfilter-regex|parse-(html|tika|rawxml)|index-(basic|anchor|more|rawxml|xmlnamespaces|bcubefilter)|indexer-solr|urlnormalizer-(pass|regex|basic)</value>
     <description>Regular expression naming plugin directory names to
     include.  Any plugin not matching this expression is excluded.
     In any case you need at least include the nutch-extensionpoints plugin. By
@@ -98,7 +98,7 @@
   
   <property>
     <name>indexingfilter.order</name>
-    <value>org.apache.nutch.indexer.basic.BasicIndexingFilter org.apache.nutch.indexer.fetchdate.FetchDateIndexingFilter org.apache.nutch.indexer.anchor.AnchorIndexingFilter org.apache.nutch.indexer.more.MoreIndexingFilter org.nsidc.nutch.index.rawxml.RawXMLIndexingFilter org.nsidc.nutch.index.xmlnamespaces.NamespaceIndexingFilter org.apache.nutch.indexer.bcubefilter.DiscardBCubeIndexingFilter</value>
+    <value>org.apache.nutch.indexer.basic.BasicIndexingFilter org.apache.nutch.indexer.anchor.AnchorIndexingFilter org.apache.nutch.indexer.more.MoreIndexingFilter org.nsidc.nutch.index.rawxml.RawXMLIndexingFilter org.nsidc.nutch.index.xmlnamespaces.NamespaceIndexingFilter org.apache.nutch.indexer.bcubefilter.DiscardBCubeIndexingFilter</value>
     <description>The order by which index filters are applied.
     If empty, all available index filters (as dictated by properties
     plugin-includes and plugin-excludes above) are loaded and applied in system
@@ -123,7 +123,7 @@
   
   <property>
     <name>indexingfilter.bcube.allowed.mimetypes</name>
-	<value>application/xml text/xml json</value>
+	<value>application/xml text/xml json opensearch rdf kml wsdl wadl</value>
 	<description>
 	    Determines the allowed mime types to index. It performs a partial matching, i.e.
 	    if a document has application/json and a value in this property is json or tion/json then that
@@ -207,7 +207,7 @@
 
   <property>
     <name>fetcher.threads.fetch</name>
-    <value>16</value>
+    <value>50</value>
     <description>The number of FetcherThreads the fetcher should use.
     This is also determines the maximum number of requests that are
     made at once (each FetcherThread handles one connection). The total
@@ -224,7 +224,7 @@
 
   <property>
     <name>fetcher.threads.per.queue</name>
-    <value>4</value>
+    <value>5</value>
     <description>This number is the maximum number of threads that
       should be allowed to access a queue at one time. Replaces
       deprecated parameter 'fetcher.threads.per.host'.
@@ -256,7 +256,7 @@
 
   <property>
     <name>fetcher.timelimit.mins</name>
-    <value>-1</value>
+    <value>120</value>
     <description>This is the number of minutes allocated to the fetching.
     Once this value is reached, any remaining entry from the input URL list is skipped
     and all active queues are emptied. The default value of -1 deactivates the time limit.
@@ -328,7 +328,7 @@
 
 <property>
   <name>solr.server.url</name>
-  <value>http://52.10.124.186:8888/solr</value>
+  <value></value>
   <description>
       Solr
   </description>

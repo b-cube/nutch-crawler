@@ -38,17 +38,16 @@
 -^(http|https)://.*.com/
 
 # do not follow URLs with these words:
--.*(wp-includes|cite|xmlrpc|svn|apache|sports|bulletin|forum|senate|joomla|browse|plugins|modules|contact|licenses|images|about|faq|embassy|foia|library|student|grants|wiki|wlwmanifest|reports|news|abstract|blog|calendar|schedule|publish|contrib|publication|twitter|citation|keywordsearch|fsf|opensource|gnu|libraries|people|policy|article|presentation|media|video|conference|summit|theme|guide|manual|upload|music|personal|shop|cart|retail|thumbnail|author|health|whoi|tags)
+-.*(wp-includes|cite|xmlrpc|svn|apache|sports|bulletin|forum|senate|joomla|browse|plugins|modules|contact|licenses|images|about|faq|embassy|foia|library|student|grants|wiki|wlwmanifest|reports|news|abstract|blog|calendar|schedule|publish|contrib|publication|twitter|citation|keywordsearch|opensource|gnu|libraries|people|policy|article|presentation|media|video|conference|summit|theme|guide|manual|upload|music|personal|shop|cart|retail|thumbnail|author|health|whoi|tags)
 
-# accept anything from these domains
-+^http://([a-z0-9]*\.)*nasa.gov/
-+^http://([a-z0-9]*\.)*usgs.gov/
-+^http://([a-z0-9]*\.)*noaa.gov/
-+^http://([a-z0-9]*\.)*data.gov/
-+^http://([a-z0-9]*\.)*nsf.gov/
-+^http://([a-z0-9]*\.)*usap.gov/
-+^http://([a-z0-9]*\.)*epa.gov/
-+^http://([a-z0-9]*\.)*nrcs.usda.gov/
++^(http|https)://([a-z0-9]*\.)*nasa.gov/
++^(http|https)://([a-z0-9]*\.)*usgs.gov/
++^(http|https)://([a-z0-9]*\.)*noaa.gov/
++^(http|https)://([a-z0-9]*\.)*data.gov/
++^(http|https)://([a-z0-9]*\.)*nsf.gov/
++^(http|https)://([a-z0-9]*\.)*usap.gov/
++^(http|https)://([a-z0-9]*\.)*epa.gov/
++^(http|https)://([a-z0-9]*\.)*nrcs.usda.gov/
 
 +^(http|https)://.*.org/
 +^(http|https)://.*.edu/
