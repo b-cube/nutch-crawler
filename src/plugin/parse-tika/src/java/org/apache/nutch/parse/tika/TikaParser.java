@@ -72,7 +72,9 @@ public class TikaParser implements org.apache.nutch.parse.Parser {
 		}
 
 		// get the right parser using the mime type as a clue
-		Parser parser = tikaConfig.getParser(MediaType.parse(mimeType));
+		// 
+		String overridenMimeType = getBCubeMimeType(mimeType);
+		Parser parser = tikaConfig.getParser(MediaType.parse(overridenMimeType));
 		byte[] raw = content.getContent();
 
 		if (parser == null) {
@@ -182,6 +184,14 @@ public class TikaParser implements org.apache.nutch.parse.Parser {
 						Nutch.CACHING_FORBIDDEN_KEY, cachingPolicy);
 		}
 		return filteredParse;
+	}
+
+	private String getBCubeMimeType(String mimeType) {
+		if (mimeType.contains("opensearch") || mimeType.contains("rdf")) {
+			return "application/xml";
+		} else {
+			return mimeType;
+		}
 	}
 
 	public void setConf(Configuration conf) {
