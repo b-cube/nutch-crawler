@@ -38,7 +38,7 @@
 -^(http|https)://.*.com/
 
 # do not follow URLs with these words:
--.*(wp-includes|cite|xmlrpc|svn|apache|sports|bulletin|forum|senate|joomla|browse|plugins|modules|contact|licenses|images|about|faq|embassy|foia|library|student|grants|wiki|wlwmanifest|reports|news|abstract|blog|calendar|schedule|publish|contrib|publication|twitter|citation|keywordsearch|opensource|gnu|libraries|people|policy|article|presentation|media|video|conference|summit|theme|guide|manual|upload|music|personal|shop|cart|retail|thumbnail|author|health|whoi|tags)
+-.*(wp-includes|cite|xmlrpc|svn|apache|sport|bulletin|forum|senate|browse|plugins|module|contact|license|images|about|faq|embassy|foia|library|student|grant|wiki|wlwmanifest|reports|news|abstract|blog|calendar|schedule|publish|contrib|publication|twitter|citation|keywordsearch|gnu|libraries|people|policy|article|presentation|media|video|conference|summit|theme|guide|manual|upload|music|personal|shop|cart|retail|thumbnail|author|health|whoi|tags|event|itemid|zenodo|seminar|courses|syndication|finance)
 
 +^(http|https)://([a-z0-9]*\.)*nasa.gov/
 +^(http|https)://([a-z0-9]*\.)*usgs.gov/
@@ -55,3 +55,5 @@
 +^(http|https)://.*.int/
 +^(http|https)://.*.ac.uk/
 +^(http|https)://.*.edu.au/
+
++.*(api|data|service)
