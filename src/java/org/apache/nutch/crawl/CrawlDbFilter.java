@@ -103,6 +103,8 @@ public class CrawlDbFilter implements Mapper<Text, CrawlDatum, Text, CrawlDatum>
     if (url != null) { // if it passes
       newKey.set(url); // collect it
       output.collect(newKey, value);
+    } else {
+      reporter.getCounter("CrawlDB", "urls_filtered_by_regex").increment(1);
     }
   }
 }

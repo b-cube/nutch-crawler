@@ -21,16 +21,15 @@ import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+import org.mortbay.log.Log;
 // Commons Logging imports
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import org.apache.hadoop.io.*;
 import org.apache.hadoop.fs.*;
 import org.apache.hadoop.conf.*;
 import org.apache.hadoop.mapred.*;
 import org.apache.hadoop.util.*;
-
 import org.apache.nutch.util.HadoopFSUtil;
 import org.apache.nutch.util.LockUtil;
 import org.apache.nutch.util.NutchConfiguration;
@@ -101,8 +100,10 @@ public class CrawlDb extends Configured implements Tool {
     if (LOG.isInfoEnabled()) {
       LOG.info("CrawlDb update: Merging segment data into db.");
     }
+    
+    RunningJob crawlDBJob = null;
     try {
-      JobClient.runJob(job);
+    	crawlDBJob = JobClient.runJob(job);
     } catch (IOException e) {
       LockUtil.removeLockFile(fs, lock);
       Path outPath = FileOutputFormat.getOutputPath(job);
@@ -112,6 +113,9 @@ public class CrawlDb extends Configured implements Tool {
 
     CrawlDb.install(job, crawlDb);
     long end = System.currentTimeMillis();
+    
+    long urlsFilteredByRegex = crawlDBJob.getCounters().findCounter("CrawlDB", "urls_filtered_by_regex").getValue();
+    LOG.info("BCUBE: Total number of URLs filtered by regex: " + urlsFilteredByRegex);
     LOG.info("CrawlDb update: finished at " + sdf.format(end) + ", elapsed: " + TimingUtil.elapsedTime(start, end));
   }
 /*

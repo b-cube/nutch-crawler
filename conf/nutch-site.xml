@@ -66,7 +66,7 @@
 
   <property>
     <name>http.content.limit</name>
-    <value>131072</value>
+    <value>1000000</value>
     <description>The length limit for downloaded content using the http://
     protocol, in bytes. If this value is nonnegative (>=0), content longer
     than it will be truncated; otherwise, no truncation at all. Do not
@@ -95,7 +95,7 @@
     underlying commons-httpclient library.
     </description>
   </property>
-  
+
   <property>
     <name>indexingfilter.order</name>
     <value>org.apache.nutch.indexer.basic.BasicIndexingFilter org.apache.nutch.indexer.anchor.AnchorIndexingFilter org.apache.nutch.indexer.more.MoreIndexingFilter org.nsidc.nutch.index.rawxml.RawXMLIndexingFilter org.nsidc.nutch.index.xmlnamespaces.NamespaceIndexingFilter org.apache.nutch.indexer.bcubefilter.DiscardBCubeIndexingFilter</value>
@@ -111,7 +111,7 @@
     another filter.
     </description>
   </property>
-  
+
  <property>
   <name>moreIndexingFilter.indexMimeTypeParts</name>
   <value>false</value>
@@ -120,25 +120,25 @@
   compatibility. False will not split the mime-type.
   </description>
 </property>
-  
+
   <property>
     <name>indexingfilter.bcube.allowed.mimetypes</name>
-	<value>application/xml text/xml json opensearch rdf kml wsdl wadl</value>
+	<value>application/xml text/xml json opensearch rdf kml wsdl wadl application/txt</value>
 	<description>
 	    Determines the allowed mime types to index. It performs a partial matching, i.e.
 	    if a document has application/json and a value in this property is json or tion/json then that
 	    document will be indexed.
 	</description>
   </property>
-  
+
  <property>
     <name>indexingfilter.bcube.forbidden.url.patterns</name>
 	<value></value>
 	<description>
 	    TODO
 	</description>
-  </property>  
-  
+  </property>
+
 <!-- generator properties -->
 
 	<property>
@@ -152,7 +152,7 @@
 
 	<property>
 	  <name>generate.max.count</name>
-	  <value>-1</value>
+	  <value>5000</value>
 	  <description>The maximum number of urls in a single
 	  fetchlist.  -1 if unlimited. The urls are counted according
 	  to the value of the parameter generator.count.mode.
@@ -275,7 +275,7 @@
 
   <property>
     <name>fetcher.throughput.threshold.pages</name>
-    <value>-1</value>
+    <value>4</value>
     <description>The threshold of minimum pages per second. If the fetcher downloads less
     pages per second than the configured threshold, the fetcher stops, preventing slow queue's
     from stalling the throughput. This threshold must be an integer. This can be useful when
