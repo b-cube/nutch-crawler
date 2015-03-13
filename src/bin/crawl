@@ -100,7 +100,7 @@ do
 
   # note that some of the options listed here could be set in the
   # corresponding hadoop site xml param file -D mapred.child.java.opts=-Xmx1000m was left out bc EMR has its own values depending on the instance type
-  commonOptions="-D mapred.reduce.tasks=$numTasks -D mapred.reduce.tasks.speculative.execution=false -D mapred.map.tasks.speculative.execution=false -D mapred.compress.map.output=true"
+  commonOptions="-D mapred.reduce.tasks=$numTasks -D mapred.max.map.failures.percent=10 -D mapred.reduce.tasks.speculative.execution=false -D mapred.map.tasks.speculative.execution=false -D mapred.compress.map.output=true"
 
 
   if [ -e ".STOP" ]
