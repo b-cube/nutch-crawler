@@ -1,0 +1,686 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="http://www.fgdc.gov/metadata/fgdc-std-001-1998.xsd">
+   <idinfo>
+      <citation>
+         <citeinfo>
+            <origin>U.S. Department of Commerce, Bureau of the Census, Geography Division</origin>
+            <pubdate>20080215</pubdate>
+            <title>LABOR FORCE Employment Status of Persons 16 Yrs and Over COS 2000</title>
+            <edition>Redistricting Census 2000</edition>
+            <geoform>vector digital data</geoform>
+            <pubinfo>
+               <pubplace>Washington, DC</pubplace>
+               <publish>U.S. Department of Commerce, Bureau of the Census, Geography Division</publish>
+            </pubinfo>
+            <onlink>http://gstore.unm.edu/apps/rgis/datasets/09c3d576-cc4a-4e87-a711-d789ad7da11a/services/ogc/wms?SERVICE=wms&amp;REQUEST=GetCapabilities&amp;VERSION=1.1.1</onlink>
+            <onlink>http://gstore.unm.edu/apps/rgis/datasets/09c3d576-cc4a-4e87-a711-d789ad7da11a/services/ogc/wfs?SERVICE=wfs&amp;REQUEST=GetCapabilities&amp;VERSION=1.0.0</onlink>
+            <onlink>http://gstore.unm.edu/apps/rgis/datasets/09c3d576-cc4a-4e87-a711-d789ad7da11a/k00262data530573475_cnty_view.derived.shp</onlink>
+            <onlink>http://gstore.unm.edu/apps/rgis/datasets/09c3d576-cc4a-4e87-a711-d789ad7da11a/k00262data530573475_cnty_view.original.zip</onlink>
+            <onlink>http://gstore.unm.edu/apps/rgis/datasets/09c3d576-cc4a-4e87-a711-d789ad7da11a/k00262data530573475_cnty_view.derived.gml</onlink>
+            <onlink>http://gstore.unm.edu/apps/rgis/datasets/09c3d576-cc4a-4e87-a711-d789ad7da11a/k00262data530573475_cnty_view.derived.kml</onlink>
+            <onlink>http://gstore.unm.edu/apps/rgis/datasets/09c3d576-cc4a-4e87-a711-d789ad7da11a/k00262data530573475_cnty_view.derived.geojson</onlink>
+            <onlink>http://gstore.unm.edu/apps/rgis/datasets/09c3d576-cc4a-4e87-a711-d789ad7da11a/k00262data530573475_cnty_view.derived.json</onlink>
+            <onlink>http://gstore.unm.edu/apps/rgis/datasets/09c3d576-cc4a-4e87-a711-d789ad7da11a/k00262data530573475_cnty_view.derived.csv</onlink>
+            <onlink>http://gstore.unm.edu/apps/rgis/datasets/09c3d576-cc4a-4e87-a711-d789ad7da11a/k00262data530573475_cnty_view.derived.xls</onlink>
+            <onlink>http://gstore.unm.edu/apps/rgis/datasets/09c3d576-cc4a-4e87-a711-d789ad7da11a/metadata/FGDC-STD-001-1998.xml</onlink>
+            <onlink>http://gstore.unm.edu/apps/rgis/datasets/09c3d576-cc4a-4e87-a711-d789ad7da11a/metadata/FGDC-STD-001-1998.html</onlink>
+            <onlink>http://gstore.unm.edu/apps/rgis/datasets/09c3d576-cc4a-4e87-a711-d789ad7da11a/metadata/ISO-19115:2003.xml</onlink>
+            <onlink>http://gstore.unm.edu/apps/rgis/datasets/09c3d576-cc4a-4e87-a711-d789ad7da11a/metadata/ISO-19115:2003.html</onlink>
+            <onlink>http://gstore.unm.edu/apps/rgis/datasets/09c3d576-cc4a-4e87-a711-d789ad7da11a/metadata/ISO-19119:WMS.xml</onlink>
+            <onlink>http://gstore.unm.edu/apps/rgis/datasets/09c3d576-cc4a-4e87-a711-d789ad7da11a/metadata/ISO-19119:WFS.xml</onlink>
+            <onlink>http://gstore.unm.edu/apps/rgis/datasets/09c3d576-cc4a-4e87-a711-d789ad7da11a/metadata/ISO-19110.xml</onlink>
+         </citeinfo>
+      </citation>
+      <descript>
+         <abstract>TIGER, TIGER/Line, and Census TIGER are registered trademarks of the Bureau of the Census. The Redistricting Census 2000 TIGER/Line files are an extract of selected geographic and cartographic information from the Census TIGER data base.  The geographic coverage for a single TIGER/Line file is a county or statistical equivalent entity, with the coverage area based on January 1, 2000 legal boundaries.  A complete set of Redistricting Census 2000 TIGER/Line
+files includes all counties and statistically equivalent entities in the United States and Puerto Rico.  The Redistricting Census 2000 TIGER/Line files will not include files for the Island Areas. The Census TIGER data base represents a seamless national file with no overlaps or gaps between parts.  However, each county-based TIGER/Line file is designed to stand alone as an independent data
+set or the files can be combined to cover the whole Nation.  The Redistricting Census 2000 TIGER/Line files consist of line segments representing physical features and governmental and statistical boundaries.  The Redistricting Census 2000 TIGER/Line files do NOT contain the ZIP Code Tabulation Areas (ZCTAs) and the address ranges are of approximately the same vintage as those appearing in the 1999 TIGER/Line files.  That is, the Census Bureau is producing the
+Redistricting Census 2000 TIGER/Line files in advance of the computer processing that will ensure that the address ranges in the TIGER/Line files agree with the final Master Address File (MAF) used for tabulating Census 2000.  The files contain information distributed over a series of record types for the spatial objects of a county.  There are 17 record types, including the basic data record, the shape coordinate points, and geographic codes that can be used with appropriate software to prepare maps.  Other geographic information contained in the files includes attributes such as feature identifiers/census feature class codes (CFCC) used to differentiate feature types, address ranges and ZIP Codes, codes for legal and statistical entities, latitude/longitude coordinates of linear and point features, landmark point features, area landmarks, key geographic features, and area boundaries.  The Redistricting Census 2000 TIGER/Line data dictionary contains a complete list of all the fields in the 17 record types.</abstract>
+         <purpose>In order for others to use the information in the Census TIGER data base in a geographic information system (GIS) or for other geographic applications, the Census Bureau releases to the public extracts of the data base in the form of TIGER/Line files.  Various versions of the TIGER/Line files have been released; previous versions include the 1990 Census TIGER/Line files, the 1992  TIGER/Line files, the 1994 TIGER/Line files, the 1995 TIGER/Line files, the 1997 TIGER/Line files, the 1998 TIGER/Line files, and the 1999 TIGER/Line files.  The Redistricting Census 2000 TIGER/Line files were originally produced to support the Census 2000 Redistricting Data Program.</purpose>
+         <supplinf>To find out more about TIGER/Line files and other Census TIGER data base derived data sets visit http://www.census.gov/geo/www/tiger.</supplinf>
+      </descript>
+      <timeperd>
+         <timeinfo>
+            <sngdate>
+               <caldate>2000</caldate>
+            </sngdate>
+         </timeinfo>
+         <current>2000</current>
+      </timeperd>
+      <status>
+         <progress>Complete</progress>
+         <update>As needed</update>
+      </status>
+      <spdom>
+         <bounding>
+            <westbc>-109.05078125</westbc>
+            <eastbc>-103.002449035645</eastbc>
+            <northbc>37.0003128051758</northbc>
+            <southbc>31.3322792053223</southbc>
+         </bounding>
+      </spdom>
+      <keywords>
+         <theme>
+            <themekt>ISO 19115 Topic Categories</themekt>
+            <themekey>society</themekey>
+         </theme>
+         <theme>
+            <themekt>None</themekt>
+            <themekey>Line Feature</themekey>
+            <themekey>Feature Identifier</themekey>
+            <themekey>Census Feature Class Code (CFCC)</themekey>
+            <themekey>Address Range</themekey>
+            <themekey>Geographic Entity</themekey>
+            <themekey>Point/Node</themekey>
+            <themekey>Landmark Feature</themekey>
+            <themekey>Political Boundary</themekey>
+            <themekey>Statistical Boundary</themekey>
+            <themekey>Polygon</themekey>
+            <themekey>County/County Equivalent</themekey>
+            <themekey>TIGER/Line</themekey>
+            <themekey>Topology</themekey>
+            <themekey>Street Centerline</themekey>
+            <themekey>Latitude/Longitude</themekey>
+            <themekey>ZIP Code</themekey>
+            <themekey>Vector</themekey>
+            <themekey>TIGER/Line Identification Number (TLID)</themekey>
+            <themekey>Street Segment</themekey>
+            <themekey>Coordinate</themekey>
+            <themekey>Boundary</themekey>
+         </theme>
+         <place>
+            <placekt>Spatial Reference System Identifiers</placekt>
+            <placekey>EPSG:4269</placekey>
+            <placekey>EPSG:7019</placekey>
+         </place>
+         <place>
+            <placekt>FIPS Publication 6-4, FIPS Publication 55</placekt>
+            <placekey>United States</placekey>
+            <placekey>Puerto Rico</placekey>
+            <placekey>County</placekey>
+         </place>
+         <place>
+            <placekt>None</placekt>
+            <placekey>New Mexico</placekey>
+         </place>
+      </keywords>
+      <accconst>None</accconst>
+      <useconst>None.  Acknowledgment of the U.S. Bureau of the Census would be appreciated for
+products derived from these files.  TIGER, TIGER/Line, and Census TIGER are
+registered trademarks of the Bureau of the Census.</useconst>
+      <ptcontac>
+         <cntinfo>
+            <cntorgp>
+               <cntorg>U.S. Department of Commerce, Bureau of the Census, Geography Division</cntorg>
+            </cntorgp>
+            <cntpos>Products and Services Staff</cntpos>
+            <cntaddr>
+               <addrtype>mailing address</addrtype>
+               <address>Bureau of the Census</address>
+               <city>Washington</city>
+               <state>District of Columbia</state>
+               <postal>20233-7400</postal>
+               <country>USA</country>
+            </cntaddr>
+            <cntvoice>(301) 457-1128</cntvoice>
+            <cntfax>(301) 457-4710</cntfax>
+            <cntemail>tiger@census.gov</cntemail>
+         </cntinfo>
+      </ptcontac>
+      <native>Microsoft Windows 2000 Version 5.0 (Build 2195) Service Pack 4; ESRI ArcCatalog 9.1.0.722</native>
+   </idinfo>
+   <dataqual>
+      <attracc>
+         <attraccr>Accurate against Federal information Processing Standards
+(FIPS), FIPS Publication 6-4, and FIPS-55 at the 100% level for the codes and base
+names.  The remaining attribute information has been examined but has not been fully
+tested for accuracy.</attraccr>
+      </attracc>
+      <logic>The feature network of lines (as represented by Record Types 1 and 2) is compete
+for census purposes.  Spatial objects in TIGER/Line belong to the "Geometry and
+Topology" (GT) class of objects in the "Spatial Data Transfer Standard" (SDTS)
+FIPS Publication 173 and are topologically valid.  Node/geometry and topology
+(GT)-polygon/chain relationships are collected or generated to satisfy topological
+edit requirements.  These requirements include:
+* Complete chains must begin and end at nodes.
+* Complete chains must connect to each other at nodes.
+* Complete chains do not extend through nodes.
+* Left and right GT-polygons are defined for each complete chain element and are
+consistent throughout the extract process.
+* the chains representing the limits of the files are free of gaps.
+The Census Bureau performed automated tests to ensure logical consistency and limits
+of files.  All polygons are tested for closure.  The Census Bureau uses its internally
+developed Geographic Update System to enhance and modify spatial and attribute data in
+the Census TIGER data base.  Standard geographic codes, such as FIPS codes for states,
+counties, municipalities, and places, are used when encoding spatial entities.  The
+Census Bureau performed spatial data tests for logical consistency of the codes during
+the compilation of the original Census TIGER data base files.  Most of the Codes
+themselves were provided to the Census Bureau by the USGS, the agency responsible for
+maintaining FIPS 55. Feature attribute information has been examined but has not been
+fully tested for consistency.</logic>
+      <complete>Data completeness of the TIGER/Line files reflects the contents of the Census TIGER
+data base at the time the TIGER/Line files (Redistricting Census 2000 version) were
+created.</complete>
+      <posacc>
+         <horizpa>
+            <horizpar>The information present in these files is provided for the purposes of statistical
+analysis and census operations only.  Coordinates in the TIGER/Line files have six
+implied decimal places, but the positional accuracy of these coordinates is not as
+great as the six decimal places suggest.  The positional accuracy varies with the
+source materials used, but generally the information is no better than the established
+national map Accuracy standards for 1:100,000-scale maps from the U.S. Geological
+Survey (USGS); thus it is NOT suitable for high-precision measurement applications
+such as engineering problems, property transfers, or other uses that might require
+highly accurate measurements of the earth's surface.  The USGS 1:100,000-scale maps
+met national map accuracy standards and use coordinates defined by the North
+American Datum, 1983.  For the contiguous 48 States, the cartographic fidelity of
+most of the Redistricting Census 2000 TIGER/Line files, in areas outside the
+1980 census Geographic Base File/Dual Independent map Encoding (GBF/DIME) file
+coverage and selected other large metropolitan areas, compare favorable with the
+USGS 1:100,000-scale maps.  The Census Bureau cannot specify the accuracy of
+features inside of what was the 1980 GBF/DIME-File coverage or selected metropolitan
+areas.  The Census Bureau added updates to the TIGER/Line files that enumerators
+annotated on maps sheets prepared from the Census TIGER data base as they attempted
+to traverse every street feature shown on the Census 2000 map sheets; the Census
+Bureau also made other corrections from updated map sheets supplied by local
+participants for Census Bureau programs.  The locational accuracy of these updates
+is of unknown quality.  In addition to the Federal, State, and local sources,
+portions of the files may contain information obtained in part from maps and
+other materials prepared by private companies.  Despite the fact the TIGER/Line
+data positional accuracy is not as high as the coordinate values imply, the
+six-decimal place precision is useful when producing maps.  The precision allows
+features that are next to each other on the ground to be placed in the correct
+position, on the map, relative to each other, without overlap.</horizpar>
+         </horizpa>
+      </posacc>
+      <lineage>
+         <srcinfo>
+            <srccite>
+               <citeinfo>
+                  <origin>U.S. Department of Commerce, Bureau of the Census, Geography Division</origin>
+                  <pubdate>Unpublished material</pubdate>
+                  <title>EMPLOYMENT STATUS OF PERSONS 16 YRS AND OVER COS 2000
+</title>
+                  <edition>Redistricting Census 2000</edition>
+               </citeinfo>
+            </srccite>
+            <typesrc>online</typesrc>
+            <srctime>
+               <timeinfo>
+                  <sngdate>
+                     <caldate>2000</caldate>
+                  </sngdate>
+               </timeinfo>
+               <srccurr>Date the file was made available to create TIGER/Line File extracts.</srccurr>
+            </srctime>
+            <srccitea>TIGER</srccitea>
+            <srccontr>Selected geographic and cartographic information (line segments) from
+the Census TIGER data base.</srccontr>
+         </srcinfo>
+         <procstep>
+            <procdesc>In order for others to use the information in the Census TIGER data base in
+a GIS or for other geographic applications, the Census Bureau releases periodic
+extracts of selected information from the Census TIGER data base, organized as
+topologically consistent networks.  Software (TIGER DB routines) written by the
+Geography Division allows for efficient access to Census TIGER system data.
+TIGER/Line files are extracted from the Census TIGER data base by county or
+statistical equivalent area.  Census TIGER data for a given county or statistical
+equivalent area is then distributed among 17 fixed length record ASCII files, each
+one containing attributes for either line, polygon, or landmark geographic data
+types.  The Census Bureau has released various versions of the TIGER/Line files
+since 1988, with each version having more updates of the attributes than the previous version.</procdesc>
+            <srcused>TIGER</srcused>
+            <procdate>2000</procdate>
+         </procstep>
+         <procstep>
+            <procdesc>Additional items were added for ease of joining Socioeconomic Data.</procdesc>
+            <procdate>20060531</procdate>
+         </procstep>
+      </lineage>
+   </dataqual>
+   <spdoinfo>
+      <indspref>New Mexico (35)</indspref>
+   </spdoinfo>
+   <spref>
+      <horizsys>
+         <geograph>
+            <latres>0.00000001</latres>
+            <longres>0.00000001</longres>
+            <geogunit>Decimal degrees</geogunit>
+         </geograph>
+         <geodetic>
+                <horizdn>North American Datum of 1983</horizdn>
+                <ellips>Geodetic Reference System 80</ellips>
+                <semiaxis>6378137.000000</semiaxis>
+                <denflat>298.257222</denflat>
+            </geodetic>
+      </horizsys>
+   </spref>
+   <eainfo>
+      <detailed>
+         <enttyp>
+            <enttypl>
+tgrcnty0_1</enttypl>
+            <enttypd>File name</enttypd>
+            <enttypds>Bureau of the Census</enttypds>
+         </enttyp>
+         <attr>
+            <attrlabl>FID</attrlabl>
+            <attrdef>Internal feature number.</attrdef>
+            <attrdefs>ESRI</attrdefs>
+            <attrdomv>
+               <udom>Sequential unique whole numbers that are automatically generated.</udom>
+            </attrdomv>
+         </attr>
+         <attr>
+            <attrlabl>Shape</attrlabl>
+            <attrdef>Feature geometry.</attrdef>
+            <attrdefs>ESRI</attrdefs>
+            <attrdomv>
+               <udom>Coordinates defining the features.</udom>
+            </attrdomv>
+         </attr>
+         <attr>
+            <attrlabl>COUNTY</attrlabl>
+            <attrdef>County Name (Upper and Lower Case)</attrdef>
+            <attrdefs>Bureau of the Census</attrdefs>
+            <attrdomv>
+               <udom>County Name (Upper and Lower Case)</udom>
+            </attrdomv>
+         </attr>
+         <attr>
+            <attrlabl>CTY_UC</attrlabl>
+            <attrdef>County Name (Upper Case only)</attrdef>
+            <attrdefs>EDAC</attrdefs>
+            <attrdomv>
+               <udom>County Name (Upper Case only)</udom>
+            </attrdomv>
+         </attr>
+         <attr>
+            <attrlabl>AREA</attrlabl>
+            <attrdef>Area of feature in internal units squared.</attrdef>
+            <attrdefs>ESRI</attrdefs>
+            <attrdomv>
+               <udom>Positive real numbers that are automatically generated.</udom>
+            </attrdomv>
+         </attr>
+         <attr>
+            <attrlabl>PERIMETER</attrlabl>
+            <attrdef>Perimeter of feature in internal units.</attrdef>
+            <attrdefs>ESRI</attrdefs>
+            <attrdomv>
+               <udom>Positive real numbers that are automatically generated.</udom>
+            </attrdomv>
+         </attr>
+         <attr>
+            <attrlabl>FIPSSTCO</attrlabl>
+            <attrdef>FIPS State and County Code (Character field)</attrdef>
+            <attrdefs>Bureau of the Census</attrdefs>
+            <attrdomv>
+               <udom>FIPS State and County Code (Character field)</udom>
+            </attrdomv>
+         </attr>
+         <attr>
+            <attrlabl>FIPSTC_NO</attrlabl>
+            <attrdef>FIPS State and County Code (Integer field)</attrdef>
+            <attrdefs>EDAC</attrdefs>
+            <attrdomv>
+               <udom>FIPS State and County Code (Integer field)</udom>
+            </attrdomv>
+         </attr>
+         <attr>
+            <attrlabl>FIPS</attrlabl>
+            <attrdef>FIPS County Code (Character Field)</attrdef>
+            <attrdefs>Bureau of the Census</attrdefs>
+            <attrdomv>
+               <udom>FIPS County Code (Character Field)</udom>
+            </attrdomv>
+         </attr>
+         <attr>
+            <attrlabl>FIPS_NO</attrlabl>
+            <attrdef>FIPS County Code (Integer Field)</attrdef>
+            <attrdefs>EDAC</attrdefs>
+            <attrdomv>
+               <udom>FIPS County Code (Integer Field)</udom>
+            </attrdomv>
+         </attr>
+         <attr>
+            <attrlabl>TGR_</attrlabl>
+            <attrdef>Software generated</attrdef>
+            <attrdefs>ESRI</attrdefs>
+            <attrdomv>
+               <udom>Software generated ID</udom>
+            </attrdomv>
+         </attr>
+         <attr>
+            <attrlabl>TGR_ID</attrlabl>
+            <attrdef>Software generated ID</attrdef>
+            <attrdefs>ESRI</attrdefs>
+            <attrdomv>
+               <udom>Software generated ID</udom>
+            </attrdomv>
+         </attr>
+         <attr>
+            <attrlabl>P043001</attrlabl>
+            <attrdef>Total_persons_16_years_and_over_</attrdef>
+            <attrdefs>BBER</attrdefs>
+            <attrdomv>
+               <udom>Total_persons_16_years_and_over_</udom>
+            </attrdomv>
+         </attr>
+         <attr>
+            <attrlabl>P043016</attrlabl>
+            <attrdef>Persons_16_years_and_over_who_are_in_the_labor_force</attrdef>
+            <attrdefs>BBER</attrdefs>
+            <attrdomv>
+               <udom>Persons_16_years_and_over_who_are_in_the_labor_force</udom>
+            </attrdomv>
+         </attr>
+         <attr>
+            <attrlabl>P043017</attrlabl>
+            <attrdef>Persons_16_years_and_over_who_are_in_the_Armed_Forces</attrdef>
+            <attrdefs>BBER</attrdefs>
+            <attrdomv>
+               <udom>Persons_16_years_and_over_who_are_in_the_Armed_Forces</udom>
+            </attrdomv>
+         </attr>
+         <attr>
+            <attrlabl>P043018</attrlabl>
+            <attrdef>Persons_16_years_and_over_who_are_in_the_civilian_labor_force</attrdef>
+            <attrdefs>BBER</attrdefs>
+            <attrdomv>
+               <udom>Persons_16_years_and_over_who_are_in_the_civilian_labor_force</udom>
+            </attrdomv>
+         </attr>
+         <attr>
+            <attrlabl>P043019</attrlabl>
+            <attrdef>Persons_16_years_and_over_who_are_employed_civilians</attrdef>
+            <attrdefs>BBER</attrdefs>
+            <attrdomv>
+               <udom>Persons_16_years_and_over_who_are_employed_civilians</udom>
+            </attrdomv>
+         </attr>
+         <attr>
+            <attrlabl>P043020</attrlabl>
+            <attrdef>Persons_16_years_and_over_who_are_unemployed</attrdef>
+            <attrdefs>BBER</attrdefs>
+            <attrdomv>
+               <udom>Persons_16_years_and_over_who_are_unemployed</udom>
+            </attrdomv>
+         </attr>
+         <attr>
+            <attrlabl>P043021</attrlabl>
+            <attrdef>Persons_16_years_and_over_who_are_not_in_the_labor_force</attrdef>
+            <attrdefs>BBER</attrdefs>
+            <attrdomv>
+               <udom>Persons_16_years_and_over_who_are_not_in_the_labor_force</udom>
+            </attrdomv>
+         </attr>
+         <attr>
+            <attrlabl>P043022</attrlabl>
+            <attrdef>Percent_of_persons_16_years_and_over_who_are_in_the_labor_force</attrdef>
+            <attrdefs>BBER</attrdefs>
+            <attrdomv>
+               <udom>Percent_of_persons_16_years_and_over_who_are_in_the_labor_force</udom>
+            </attrdomv>
+         </attr>
+         <attr>
+            <attrlabl>P043023</attrlabl>
+            <attrdef>Percent_of_the_civilian_labor_force_that_is_unemployed</attrdef>
+            <attrdefs>BBER</attrdefs>
+            <attrdomv>
+               <udom>Percent_of_the_civilian_labor_force_that_is_unemployed</udom>
+            </attrdomv>
+         </attr>
+      </detailed>
+      <overview>
+         <eaover>The TIGER/Line files contain data describing three major
+types of features/entities;
+Line Features -
+1) Roads
+2) Railroads
+3) Hydrography
+4) Miscellaneous transportation features and selected power lines and pipe lines
+5) Political and statistical boundaries
+Landmark Features -
+1) Point landmarks, e.g., schools and churches.
+2) Area landmarks, e.g., Parks and cemeteries.
+3) Key geographic locations (KGLs), e.g., shopping centers and factories.
+Polygon features -
+1) Geographic entity codes for areas used to tabulate the Census 2000 census
+statistical data and 1990 geographic areas
+2) Locations of area landmarks
+3) Locations of KGLs
+The line features and polygon information form the majority of data in the TIGER/Line
+files.  Some of the data/attributes describing the lines include coordinates, feature
+identifiers (names), CFCCs (used to identify the most noticeable characteristic of a
+feature), address ranges, and geographic entity codes.  The TIGER/Line files contain
+point and area labels that describe landmark features and provide locational reference.
+Area landmarks consist of a feature name or label and feature type assigned to a polygon
+or group of polygons.  Landmarks may overlap or refer to the same set of polygons.
+The Census TIGER data base uses collections of spatial objects (points, lines, and
+polygons) to model or describe real-world geography.  The Census Bureau uses these
+spatial objects to represent features such as streets, rivers, and political boundaries
+and assigns attributes to these features to identify and describe specific features
+such as the 500 block of Market Street in Philadelphia, Pennsylvania.</eaover>
+         <eadetcit>U.S. Bureau of the Census, TIGER/Line files,
+Redistricting Census 2000 Technical Documentation.  The TIGER/Line documentation
+defines the terms and definitions used within the files.</eadetcit>
+      </overview>
+   </eainfo>
+   <distinfo>
+      <distrib>
+         <cntinfo>
+            <cntorgp>
+               <cntorg>Earth Data Analysis Center</cntorg>
+            </cntorgp>
+            <cntpos>Clearinghouse Manager</cntpos>
+            <cntaddr>
+               <addrtype>mailing and physical address</addrtype>
+               <address>MSC01 1110</address>
+               <address>1 University of New Mexico</address>
+               <city>Albuquerque</city>
+               <state>NM</state>
+               <postal>87131-0001</postal>
+               <country>USA</country>
+            </cntaddr>
+            <cntvoice>505-277-3622 ext. 230</cntvoice>
+            <cntfax>505-277-3614</cntfax>
+            <cntemail>clearinghouse@edac.unm.edu</cntemail>
+            <hours>0800 - 1700 MT, M-F -7 hours GMT</hours>
+         </cntinfo>
+      </distrib>
+      <resdesc>Downloadable Data</resdesc>
+      <distliab>The material on this site is made available as a public service. Maps and data are to be used for reference purposes only and the Earth Data Analysis Center (EDAC), Resource Geographic Information System (RGIS) and The University of New Mexico are not responsible for any inaccuracies herein contained. No responsibility is assumed for damages or other liabilities due to the accuracy, availability, use or misuse of the information herein provided. Unless otherwise indicated in the documentation (metadata) for individual data sets, information on this site is public domain and may be copied without permission; citation of the source is appreciated.</distliab>
+      <stdorder>
+         <digform>
+            <digtinfo>
+               <formname>ZIP</formname>
+               <transize>1</transize>
+            </digtinfo>
+            <digtopt>
+               <onlinopt>
+                  <computer>
+                     <networka>
+                        <networkr>http://gstore.unm.edu/apps/rgis/datasets/09c3d576-cc4a-4e87-a711-d789ad7da11a/k00262data530573475_cnty_view.original.zip</networkr>
+                     </networka>
+                  </computer>
+                  <accinstr>Download from Resource Geographic Information System (RGIS) at http://rgis.unm.edu.</accinstr>
+               </onlinopt>
+            </digtopt>
+         </digform>
+         <fees>None. The files are available to download from Resource Geographic Information System (RGIS) (http://rgis.unm.edu).</fees>
+         <ordering>Contact Earth Data Analysis Center at clearinghouse@edac.unm.edu</ordering>
+      </stdorder>
+      <stdorder>
+         <digform>
+            <digtinfo>
+               <formname>ESRI Shapefile (shp)</formname>
+               <transize>5</transize>
+            </digtinfo>
+            <digtopt>
+               <onlinopt>
+                  <computer>
+                     <networka>
+                        <networkr>http://gstore.unm.edu/apps/rgis/datasets/09c3d576-cc4a-4e87-a711-d789ad7da11a/k00262data530573475_cnty_view.derived.shp</networkr>
+                     </networka>
+                  </computer>
+                  <accinstr>Download from Resource Geographic Information System (RGIS) at http://rgis.unm.edu.</accinstr>
+               </onlinopt>
+            </digtopt>
+         </digform>
+         <fees>None. The files are available to download from Resource Geographic Information System (RGIS) (http://rgis.unm.edu).</fees>
+         <ordering>Contact Earth Data Analysis Center at clearinghouse@edac.unm.edu</ordering>
+      </stdorder>
+      <stdorder>
+         <digform>
+            <digtinfo>
+               <formname>GML</formname>
+               <transize>5</transize>
+            </digtinfo>
+            <digtopt>
+               <onlinopt>
+                  <computer>
+                     <networka>
+                        <networkr>http://gstore.unm.edu/apps/rgis/datasets/09c3d576-cc4a-4e87-a711-d789ad7da11a/k00262data530573475_cnty_view.derived.gml</networkr>
+                     </networka>
+                  </computer>
+                  <accinstr>Download from Resource Geographic Information System (RGIS) at http://rgis.unm.edu.</accinstr>
+               </onlinopt>
+            </digtopt>
+         </digform>
+         <fees>None. The files are available to download from Resource Geographic Information System (RGIS) (http://rgis.unm.edu).</fees>
+         <ordering>Contact Earth Data Analysis Center at clearinghouse@edac.unm.edu</ordering>
+      </stdorder>
+      <stdorder>
+         <digform>
+            <digtinfo>
+               <formname>KML</formname>
+               <transize>5</transize>
+            </digtinfo>
+            <digtopt>
+               <onlinopt>
+                  <computer>
+                     <networka>
+                        <networkr>http://gstore.unm.edu/apps/rgis/datasets/09c3d576-cc4a-4e87-a711-d789ad7da11a/k00262data530573475_cnty_view.derived.kml</networkr>
+                     </networka>
+                  </computer>
+                  <accinstr>Download from Resource Geographic Information System (RGIS) at http://rgis.unm.edu.</accinstr>
+               </onlinopt>
+            </digtopt>
+         </digform>
+         <fees>None. The files are available to download from Resource Geographic Information System (RGIS) (http://rgis.unm.edu).</fees>
+         <ordering>Contact Earth Data Analysis Center at clearinghouse@edac.unm.edu</ordering>
+      </stdorder>
+      <stdorder>
+         <digform>
+            <digtinfo>
+               <formname>GeoJSON</formname>
+               <transize>5</transize>
+            </digtinfo>
+            <digtopt>
+               <onlinopt>
+                  <computer>
+                     <networka>
+                        <networkr>http://gstore.unm.edu/apps/rgis/datasets/09c3d576-cc4a-4e87-a711-d789ad7da11a/k00262data530573475_cnty_view.derived.geojson</networkr>
+                     </networka>
+                  </computer>
+                  <accinstr>Download from Resource Geographic Information System (RGIS) at http://rgis.unm.edu.</accinstr>
+               </onlinopt>
+            </digtopt>
+         </digform>
+         <fees>None. The files are available to download from Resource Geographic Information System (RGIS) (http://rgis.unm.edu).</fees>
+         <ordering>Contact Earth Data Analysis Center at clearinghouse@edac.unm.edu</ordering>
+      </stdorder>
+      <stdorder>
+         <digform>
+            <digtinfo>
+               <formname>JSON</formname>
+               <transize>5</transize>
+            </digtinfo>
+            <digtopt>
+               <onlinopt>
+                  <computer>
+                     <networka>
+                        <networkr>http://gstore.unm.edu/apps/rgis/datasets/09c3d576-cc4a-4e87-a711-d789ad7da11a/k00262data530573475_cnty_view.derived.json</networkr>
+                     </networka>
+                  </computer>
+                  <accinstr>Download from Resource Geographic Information System (RGIS) at http://rgis.unm.edu.</accinstr>
+               </onlinopt>
+            </digtopt>
+         </digform>
+         <fees>None. The files are available to download from Resource Geographic Information System (RGIS) (http://rgis.unm.edu).</fees>
+         <ordering>Contact Earth Data Analysis Center at clearinghouse@edac.unm.edu</ordering>
+      </stdorder>
+      <stdorder>
+         <digform>
+            <digtinfo>
+               <formname>Comma Separated Values (csv)</formname>
+               <transize>5</transize>
+            </digtinfo>
+            <digtopt>
+               <onlinopt>
+                  <computer>
+                     <networka>
+                        <networkr>http://gstore.unm.edu/apps/rgis/datasets/09c3d576-cc4a-4e87-a711-d789ad7da11a/k00262data530573475_cnty_view.derived.csv</networkr>
+                     </networka>
+                  </computer>
+                  <accinstr>Download from Resource Geographic Information System (RGIS) at http://rgis.unm.edu.</accinstr>
+               </onlinopt>
+            </digtopt>
+         </digform>
+         <fees>None. The files are available to download from Resource Geographic Information System (RGIS) (http://rgis.unm.edu).</fees>
+         <ordering>Contact Earth Data Analysis Center at clearinghouse@edac.unm.edu</ordering>
+      </stdorder>
+      <stdorder>
+         <digform>
+            <digtinfo>
+               <formname>MS Excel format (xls)</formname>
+               <transize>5</transize>
+            </digtinfo>
+            <digtopt>
+               <onlinopt>
+                  <computer>
+                     <networka>
+                        <networkr>http://gstore.unm.edu/apps/rgis/datasets/09c3d576-cc4a-4e87-a711-d789ad7da11a/k00262data530573475_cnty_view.derived.xls</networkr>
+                     </networka>
+                  </computer>
+                  <accinstr>Download from Resource Geographic Information System (RGIS) at http://rgis.unm.edu.</accinstr>
+               </onlinopt>
+            </digtopt>
+         </digform>
+         <fees>None. The files are available to download from Resource Geographic Information System (RGIS) (http://rgis.unm.edu).</fees>
+         <ordering>Contact Earth Data Analysis Center at clearinghouse@edac.unm.edu</ordering>
+      </stdorder>
+      <custom>Contact Earth Data Analysis Center at clearinghouse@edac.unm.edu</custom>
+      <techpreq>Adequate computer capability is the only technical prerequisite for viewing data in digital form.</techpreq>
+   </distinfo>
+   <metainfo>
+      <metd>20150317</metd>
+      <metc>
+         <cntinfo>
+            <cntorgp>
+               <cntorg>Earth Data Analysis Center</cntorg>
+            </cntorgp>
+            <cntpos>Clearinghouse Manager</cntpos>
+            <cntaddr>
+               <addrtype>mailing and physical address</addrtype>
+               <address>MSC01 1110</address>
+               <address>1 University of New Mexico</address>
+               <city>Albuquerque</city>
+               <state>NM</state>
+               <postal>87131-0001</postal>
+               <country>USA</country>
+            </cntaddr>
+            <cntvoice>505-277-3622 ext. 230</cntvoice>
+            <cntfax>505-277-3614</cntfax>
+            <cntemail>clearinghouse@edac.unm.edu</cntemail>
+            <hours>0800 - 1700 MT, M-F -7 hours GMT</hours>
+         </cntinfo>
+      </metc>
+      <metstdn>FGDC Content Standards for Digital Geospatial Metadata</metstdn>
+      <metstdv>FGDC-STD-001-1998</metstdv>
+      <mettc>local time</mettc>
+   </metainfo>
+</metadata>
