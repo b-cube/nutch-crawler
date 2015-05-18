@@ -62,6 +62,12 @@
     </description>
   </property>
 
+  <property>
+    <name>db.url.filters</name>
+    <value>true</value>
+    <description>Filter urls when updating crawldb</description>
+  </property>
+
   <!-- END of DB properties -->
 
   <property>
@@ -328,7 +334,7 @@
 
 <property>
   <name>solr.server.url</name>
-  <value></value>
+  <value>http://localhost:8983/solr</value>
   <description>
       Solr
   </description>
@@ -346,14 +352,14 @@
 
 <property>
   <name>solr.auth.username</name>
-  <value></value>
+  <value>bcube</value>
   <description>
   </description>
 </property>
 
 <property>
   <name>solr.auth.password</name>
-  <value></value>
+  <value>abcd123</value>
   <description>
   </description>
 </property>

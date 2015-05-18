@@ -51,10 +51,10 @@ fi
 #############################################
 
 # time limit for feching
-timeLimitFetch=30
+timeLimitFetch=60
 
 # num threads for fetching
-numThreads=50
+numThreads=80
 
 #############################################
 
@@ -99,8 +99,8 @@ do
   sizeFetchlist=`expr $numSlaves \* 50000`
 
   # note that some of the options listed here could be set in the
-  # corresponding hadoop site xml param file -D mapred.child.java.opts=-Xmx1000m was left out bc EMR has its own values depending on the instance type
-  commonOptions="-D mapred.reduce.tasks=$numTasks -D mapred.max.map.failures.percent=10 -D mapred.reduce.tasks.speculative.execution=false -D mapred.map.tasks.speculative.execution=false -D mapred.compress.map.output=true"
+  # corresponding hadoop site xml param file -D mapred.child.java.opts=-Xmx2048m for m3xlarge
+  commonOptions="-D mapred.reduce.tasks=$numTasks mapred.task.timeout=900000 -D mapred.child.java.opts=-Xmx2048m -D mapred.reduce.tasks.speculative.execution=false -D mapred.map.tasks.speculative.execution=false -D mapred.compress.map.output=true"
 
 
   if [ -e ".STOP" ]

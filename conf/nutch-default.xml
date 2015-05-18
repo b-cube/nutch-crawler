@@ -1149,7 +1149,7 @@
 
 <property>
   <name>parser.timeout</name>
-  <value>30</value>
+  <value>5</value>
   <description>Timeout in seconds for the parsing of a document, otherwise treats it as an exception and
   moves on the the following documents. This parameter is applied to any Parser implementation.
   Set to -1 to deactivate, bearing in mind that this could cause
@@ -1159,7 +1159,7 @@
 
 <property>
   <name>parse.filter.urls</name>
-  <value>true</value>
+  <value>false</value>
   <description>Whether the parser will filter URLs (with the configured URL filters).</description>
 </property>
 

@@ -26,7 +26,7 @@
 
 # skip image and other suffixes we can't yet parse
 # for a more extensive coverage use the urlfilter-suffix plugin
--\.(nc|nc4|hdf|pdf|mp3|mp4|css|tmp|wmv|svg|gif|GIF|jpg|JPG|png|PNG|ico|ICO|css|CSS|sit|SIT|eps|EPS|wmf|WMF|zip|ZIP|ppt|PPT|mpg|MPG|xls|XLS|gz|GZ|rpm|RPM|tgz|TGZ|mov|MOV|exe|EXE|jpeg|JPEG|bmp|BMP|js|JS)$
+-\.(nc|nc4|hdf|pdf|mp3|mp4|css|tmp|wmv|svg|gif|GIF|jpg|JPG|png|PNG|ico|ICO|css|CSS|sit|SIT|eps|EPS|wmf|WMF|zip|ZIP|ppt|PPT|mpg|MPG|xls|XLS|gz|GZ|rpm|RPM|tgz|TGZ|mov|MOV|exe|EXE|jpeg|JPEG|bmp|BMP|js|JS|xlsx|m4v|iso|pkg|tif|tiff|wav|tar|mpeg|7z|flv|dmg|mpg|avi|bz2)$
 
 # Uncomment the next line to skip URLs containing certain characters as probable queries, etc.
 # -[?*!@=]
@@ -38,7 +38,7 @@
 -^(http|https)://.*.com/
 
 # do not follow URLs with these words:
--.*(wp-includes|cite|xmlrpc|svn|apache|sport|bulletin|forum|senate|browse|plugins|module|contact|license|images|about|faq|embassy|foia|library|student|grant|wiki|wlwmanifest|reports|news|abstract|blog|calendar|schedule|publish|contrib|publication|twitter|citation|keywordsearch|gnu|libraries|people|policy|article|presentation|media|video|conference|summit|theme|guide|manual|upload|music|personal|shop|cart|retail|thumbnail|author|health|whoi|tags|event|itemid|zenodo|seminar|courses|syndication|finance|mail|phone)
+-.*(wp-includes|cite|xmlrpc|svn|apache|sport|bulletin|forum|senate|browse|plugins|module|contact|license|images|about|faq|embassy|foia|library|student|grant|wiki|wlwmanifest|reports|news|abstract|blog|calendar|schedule|publish|contrib|publication|twitter|citation|keywordsearch|gnu|libraries|people|policy|article|presentation|media|video|conference|summit|theme|guide|manual|upload|music|personal|shop|cart|retail|thumbnail|author|health|whoi|tags|event|itemid|zenodo|seminar|courses|syndication|finance|mail|phone|jisc|icpsr|drupal|packages|scholarship|law|wordpress|w3|mozilla|community|debian|resume|component)
 
 +^(http|https)://([a-z0-9]*\.)*nasa.gov/
 +^(http|https)://([a-z0-9]*\.)*usgs.gov/
@@ -49,11 +49,11 @@
 +^(http|https)://([a-z0-9]*\.)*epa.gov/
 +^(http|https)://([a-z0-9]*\.)*nrcs.usda.gov/
 
++^(http|https)://.*ucar.edu/
++^(http|https)://.*colorado.edu/
+
 +^(http|https)://.*.org/
-+^(http|https)://.*.edu/
 +^(http|https)://.*.eu/
 +^(http|https)://.*.int/
 +^(http|https)://.*.ac.uk/
 +^(http|https)://.*.edu.au/
-
-+.*(api|data|service)
